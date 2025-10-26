@@ -1,0 +1,30 @@
+/* src/styles/dark-theme.css */
+
+body.dark {
+  background-color: #121212;
+  color: #e0e0e0;
+}
+
+body.dark header,
+body.dark section,
+body.dark footer {
+  border-color: #333;
+}
+
+body.dark button {
+  background-color: #1e1e1e;
+  color: #e0e0e0;
+  border-color: #444;
+}
+
+body.dark button:hover {
+  background-color: #282828;
+}
+
+body.dark a {
+  color: #bb86fc;
+}
+
+body.dark a:hover {
+  color: #9f63f2;
+}
