@@ -22,10 +22,14 @@ function App() {
   useEffect(() => {
     const savedTheme = localStorage.getItem('theme');
     const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+    const prefersLight = window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches;
+
     if (savedTheme) {
       setTheme(savedTheme);
     } else if (prefersDark) {
       setTheme('dark');
+    } else if (prefersLight) {
+      setTheme('light');
     }
   }, []);
 
