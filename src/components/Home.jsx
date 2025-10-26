@@ -5,8 +5,7 @@ const Home = () => {
   const { t } = useTranslation();
 
   return (
-    <section>
-      <h1>Felipe dos Santos</h1>
+    <section id="home">
       <h2>{t('home_subtitle')}</h2>
     </section>
   );
