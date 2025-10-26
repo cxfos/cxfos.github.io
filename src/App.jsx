@@ -38,23 +38,17 @@ function App() {
     document.body.className = theme;
   }, [theme]);
 
-  const handleLanguageSelect = (selectedLanguage) => {
-    localStorage.setItem('language', selectedLanguage);
-    i18n.changeLanguage(selectedLanguage);
-    setLanguage(selectedLanguage);
-  };
+  const handleLanguageChange = (lang) => {
+    localStorage.setItem('language', lang);
+    i18n.changeLanguage(lang);
+    setLanguage(lang);
+  }
 
   const toggleTheme = () => {
     const newTheme = theme === 'light' ? 'dark' : 'light';
     localStorage.setItem('theme', newTheme);
     setTheme(newTheme);
   };
-
-  const changeLanguage = (lang) => {
-      localStorage.setItem('language', lang);
-      i18n.changeLanguage(lang);
-      setLanguage(lang);
-  }
 
   return (
     <div className={`App ${theme}`}>
@@ -63,10 +57,10 @@ function App() {
           theme={theme}
           toggleTheme={toggleTheme}
           language={language}
-          changeLanguage={changeLanguage}
+          changeLanguage={handleLanguageChange}
         />
       ) : (
-        <LanguageSelection onLanguageSelect={handleLanguageSelect} />
+        <LanguageSelection onLanguageSelect={handleLanguageChange} />
       )}
     </div>
   );
