@@ -6,7 +6,8 @@ const LanguageSelection = ({ onLanguageSelect }) => {
 
   return (
     <div>
-      <h1>{t('select_language')}</h1>
+      <h2>{t('welcome')}</h2>
+      <p>{t('select_language')}</p>
       <button onClick={() => onLanguageSelect('en')}>{t('english')}</button>
       <button onClick={() => onLanguageSelect('pt')}>{t('portuguese')}</button>
     </div>

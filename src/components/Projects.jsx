@@ -36,7 +36,7 @@ const Projects = () => {
   const { t } = useTranslation();
 
   return (
-    <section>
+    <section id="projects">
       <h2>{t('projects')}</h2>
       {projectsData.map((project, index) => (
         <div key={index}>

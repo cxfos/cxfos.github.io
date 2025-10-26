@@ -138,7 +138,7 @@ const Experience = () => {
   const { t } = useTranslation();
 
   return (
-    <section>
+    <section id="experience">
       <h2>{t('experience')}</h2>
       <div>
         {experiencesData.map((exp, index) => (

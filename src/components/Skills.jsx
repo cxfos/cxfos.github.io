@@ -12,7 +12,7 @@ const Skills = () => {
   const { t } = useTranslation();
 
   return (
-    <section>
+    <section id="skills">
       <h2>{t('skills')}</h2>
       {Object.entries(skillCategories).map(([category, skills]) => (
         <div key={category}>
