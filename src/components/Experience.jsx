@@ -142,16 +142,16 @@ const Experience = () => {
       <h2>{t('experience')}</h2>
       <div>
         {experiencesData.map((exp, index) => (
-          <div key={index}>
+          <div key={`exp-${index}`}>
             <h3>{exp.company}</h3>
             {exp.duration && <p>{t(exp.duration)}</p>}
             {exp.roles.map((role, roleIndex) => (
-              <div key={roleIndex}>
+              <div key={`role-${roleIndex}`}>
                 <h4>{role.title}</h4>
                 <p>{t(role.period)} | {t(role.location)}</p>
                 <ul>
                   {role.description.map((item, itemIndex) => (
-                    <li key={itemIndex}>{t(item)}</li>
+                    <li key={`item-${itemIndex}`}>{t(item)}</li>
                   ))}
                 </ul>
               </div>

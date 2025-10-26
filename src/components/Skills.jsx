@@ -19,7 +19,7 @@ const Skills = () => {
           <h3>{t(category)}</h3>
           <ul>
             {skills.map((skill, index) => (
-              <li key={index}>{skill}</li>
+              <li key={`skill-${index}`}>{skill}</li>
             ))}
           </ul>
         </div>
