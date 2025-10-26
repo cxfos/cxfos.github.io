@@ -6,6 +6,7 @@ const ThemeSwitcher = ({ theme, toggleTheme }) => {
     <button
       onClick={toggleTheme}
       className="p-2 rounded-full focus:outline-none"
+      aria-label="Toggle Theme"
     >
       {theme === 'light' ? <FiMoon size={24} /> : <FiSun size={24} />}
     </button>
