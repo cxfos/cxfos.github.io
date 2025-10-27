@@ -1,0 +1,33 @@
+/** @type {import('tailwindcss').Config} */
+export default {
+  content: [
+    "./index.html",
+    "./src/**/*.{js,ts,jsx,tsx}",
+  ],
+  darkMode: 'class', // Enables class-based dark mode
+  theme: {
+    extend: {
+      colors: {
+        // Custom color palette for consistent branding
+        primary: {
+          light: '#3b82f6', // blue-500
+          dark: '#60a5fa',  // blue-400
+        },
+        accent: {
+          light: '#f59e0b', // amber-500
+          dark: '#fbbf24',  // amber-400
+        },
+      },
+      animation: {
+        'fade-in': 'fadeIn 0.3s ease-in-out',
+      },
+      keyframes: {
+        fadeIn: {
+          '0%': { opacity: '0', transform: 'translateY(-10px)' },
+          '100%': { opacity: '1', transform: 'translateY(0)' },
+        },
+      },
+    },
+  },
+  plugins: [],
+}

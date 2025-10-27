@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import LanguageSelection from './components/LanguageSelection';
 import Portfolio from './components/Portfolio';
-import './App.css';
 import { useTranslation } from 'react-i18next';
 
 function App() {
@@ -33,9 +32,14 @@ function App() {
     }
   }, []);
 
-  // Apply theme to body
+  // Apply theme to document root
   useEffect(() => {
-    document.body.className = theme;
+    const root = document.documentElement;
+    if (theme === 'dark') {
+      root.classList.add('dark');
+    } else {
+      root.classList.remove('dark');
+    }
   }, [theme]);
 
   const handleLanguageChange = (lang) => {
@@ -51,7 +55,7 @@ function App() {
   };
 
   return (
-    <div className={`App ${theme}`}>
+    <div className="min-h-screen bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100 transition-colors duration-300">
       {language ? (
         <Portfolio
           theme={theme}
