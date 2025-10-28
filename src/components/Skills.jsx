@@ -1,5 +1,11 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
+import {
+  sectionBaseClasses,
+  sectionBodyTextClass,
+  sectionHeadingClass,
+  sectionSubheadingClass,
+} from './sectionStyles';
 
 const skillCategories = {
   "industry_knowledge": ["Front-End Development", "Object-Oriented Programming (OOP)", "Agile Project Management", "Scrum", "Business Intelligence"],
@@ -12,18 +18,25 @@ const Skills = () => {
   const { t } = useTranslation();
 
   return (
-    <section id="skills">
-      <h2>{t('skills')}</h2>
-      {Object.entries(skillCategories).map(([category, skills]) => (
-        <div key={category}>
-          <h3>{t(category)}</h3>
-          <ul>
-            {skills.map((skill, index) => (
-              <li key={`skill-${index}`}>{skill}</li>
-            ))}
-          </ul>
-        </div>
-      ))}
+    <section id="skills" className={`${sectionBaseClasses} space-y-8 text-left`}>
+      <h2 className={sectionHeadingClass}>{t('skills')}</h2>
+      <div className="grid gap-6 md:grid-cols-2">
+        {Object.entries(skillCategories).map(([category, skills]) => (
+          <div
+            key={category}
+            className="rounded-xl border border-slate-200 bg-white p-6 shadow-sm transition-colors duration-300 dark:border-slate-700 dark:bg-slate-900"
+          >
+            <h3 className={`${sectionSubheadingClass} mb-4`}>{t(category)}</h3>
+            <ul className="space-y-2">
+              {skills.map((skill, index) => (
+                <li key={`skill-${index}`} className={sectionBodyTextClass}>
+                  {skill}
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
     </section>
   );
 };

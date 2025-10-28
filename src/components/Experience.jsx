@@ -1,5 +1,11 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
+import {
+  sectionBaseClasses,
+  sectionBodyTextClass,
+  sectionHeadingClass,
+  sectionSubheadingClass,
+} from './sectionStyles';
 
 const experiencesData = [
   {
@@ -138,24 +144,39 @@ const Experience = () => {
   const { t } = useTranslation();
 
   return (
-    <section id="experience">
-      <h2>{t('experience')}</h2>
-      <div>
+    <section id="experience" className={`${sectionBaseClasses} space-y-10 text-left`}>
+      <h2 className={sectionHeadingClass}>{t('experience')}</h2>
+      <div className="space-y-8">
         {experiencesData.map((exp, index) => (
-          <div key={`exp-${index}`}>
-            <h3>{exp.company}</h3>
-            {exp.duration && <p>{t(exp.duration)}</p>}
-            {exp.roles.map((role, roleIndex) => (
-              <div key={`role-${roleIndex}`}>
-                <h4>{role.title}</h4>
-                <p>{t(role.period)} | {t(role.location)}</p>
-                <ul>
-                  {role.description.map((item, itemIndex) => (
-                    <li key={`item-${itemIndex}`}>{t(item)}</li>
-                  ))}
-                </ul>
-              </div>
-            ))}
+          <div
+            key={`exp-${index}`}
+            className="rounded-xl border border-slate-200 bg-white p-6 shadow-sm transition-colors duration-300 dark:border-slate-700 dark:bg-slate-900"
+          >
+            <h3 className={`${sectionSubheadingClass} mb-2`}>{exp.company}</h3>
+            {exp.duration && (
+              <p className={`${sectionBodyTextClass} mb-4 font-medium text-slate-700 dark:text-slate-200`}>
+                {t(exp.duration)}
+              </p>
+            )}
+            <div className="space-y-6">
+              {exp.roles.map((role, roleIndex) => (
+                <div key={`role-${roleIndex}`} className="space-y-2">
+                  <h4 className="text-lg font-semibold text-slate-800 dark:text-slate-100">{role.title}</h4>
+                  <p className="text-sm font-medium text-slate-500 dark:text-slate-400">
+                    {t(role.period)} • {t(role.location)}
+                  </p>
+                  {role.description.length > 0 && (
+                    <ul className="list-disc space-y-2 pl-5">
+                      {role.description.map((item, itemIndex) => (
+                        <li key={`item-${itemIndex}`} className={sectionBodyTextClass}>
+                          {t(item)}
+                        </li>
+                      ))}
+                    </ul>
+                  )}
+                </div>
+              ))}
+            </div>
           </div>
         ))}
       </div>

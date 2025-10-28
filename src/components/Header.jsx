@@ -23,11 +23,11 @@ const Header = ({ theme, toggleTheme }) => {
   };
 
   return (
-    <header className="sticky top-0 z-50 bg-white dark:bg-gray-900 shadow-md">
-      <div className="container mx-auto px-4 py-3 flex justify-between items-center">
-        <h1 className="text-2xl font-bold">Felipe Dos Santos</h1>
-        <div className="hidden md:flex items-center space-x-6">
-          <nav className="flex space-x-6">
+    <header className="sticky top-0 z-50 border-b border-slate-200 bg-slate-50/95 backdrop-blur transition-colors duration-300 dark:border-slate-700 dark:bg-slate-950/90">
+      <div className="mx-auto flex max-w-5xl items-center justify-between px-4 py-4 sm:px-6">
+        <h1 className="text-lg font-semibold tracking-tight text-slate-900 dark:text-slate-100 sm:text-xl">Felipe Dos Santos</h1>
+        <div className="hidden items-center space-x-6 md:flex">
+          <nav className="flex items-center space-x-6">
             {navLinks.map((link) => (
               <Link
                 key={link.to}
@@ -35,26 +35,29 @@ const Header = ({ theme, toggleTheme }) => {
                 spy
                 smooth
                 duration={500}
-                className="cursor-pointer"
-                activeClass="text-blue-500"
+                className="cursor-pointer text-sm font-medium text-slate-600 transition-colors duration-200 hover:text-slate-900 dark:text-slate-300 dark:hover:text-white"
+                activeClass="text-blue-600 dark:text-blue-400"
               >
                 {link.label}
               </Link>
             ))}
           </nav>
-          <div className="flex items-center space-x-4">
+          <div className="flex items-center space-x-3">
             <LanguageSwitcher />
             <ThemeSwitcher theme={theme} toggleTheme={toggleTheme} />
           </div>
         </div>
         <div className="md:hidden">
-          <button onClick={() => setIsOpen(!isOpen)}>
+          <button
+            onClick={() => setIsOpen(!isOpen)}
+            className="rounded-md border border-transparent p-2 text-slate-600 transition-colors duration-200 hover:border-slate-300 hover:text-slate-900 dark:text-slate-300 dark:hover:border-slate-600 dark:hover:text-white"
+          >
             {isOpen ? <FiX size={24} /> : <FiMenu size={24} />}
           </button>
         </div>
       </div>
       {isOpen && (
-        <div className="md:hidden px-4 pt-2 pb-4 space-y-2">
+        <div className="space-y-3 border-t border-slate-200 bg-slate-50 px-4 py-4 text-sm transition-colors duration-300 dark:border-slate-700 dark:bg-slate-950 md:hidden">
           {navLinks.map((link) => (
             <Link
               key={link.to}
@@ -62,14 +65,14 @@ const Header = ({ theme, toggleTheme }) => {
               spy
               smooth
               duration={500}
-              className="block cursor-pointer"
-              activeClass="text-blue-500"
+              className="block cursor-pointer font-medium text-slate-600 transition-colors duration-200 hover:text-slate-900 dark:text-slate-300 dark:hover:text-white"
+              activeClass="text-blue-600 dark:text-blue-400"
               onClick={closeMobileMenu}
             >
               {link.label}
             </Link>
           ))}
-          <div className="flex items-center space-x-4">
+          <div className="flex items-center space-x-3">
             <LanguageSwitcher />
             <ThemeSwitcher theme={theme} toggleTheme={toggleTheme} />
           </div>

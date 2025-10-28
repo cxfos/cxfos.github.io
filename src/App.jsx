@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import LanguageSelection from './components/LanguageSelection';
 import Portfolio from './components/Portfolio';
-import './App.css';
 import { useTranslation } from 'react-i18next';
 
 function App() {
@@ -33,9 +32,11 @@ function App() {
     }
   }, []);
 
-  // Apply theme to body
+  // Apply theme token to the document element for Tailwind's dark mode
   useEffect(() => {
-    document.body.className = theme;
+    const root = document.documentElement;
+    root.classList.toggle('dark', theme === 'dark');
+    root.classList.toggle('light', theme === 'light');
   }, [theme]);
 
   const handleLanguageChange = (lang) => {
@@ -51,7 +52,7 @@ function App() {
   };
 
   return (
-    <div className={`App ${theme}`}>
+    <div className="min-h-screen bg-slate-50 text-slate-900 transition-colors duration-300 dark:bg-slate-950 dark:text-slate-100">
       {language ? (
         <Portfolio
           theme={theme}
