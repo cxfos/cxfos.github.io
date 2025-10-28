@@ -23,9 +23,11 @@ const Header = ({ theme, toggleTheme }) => {
   };
 
   return (
-    <header className="sticky top-0 z-50 bg-white dark:bg-gray-900 shadow-md">
+    <header className="sticky top-0 z-50 bg-gray-50 dark:bg-gray-900 border-b border-gray-200 dark:border-gray-700 backdrop-blur-lg bg-opacity-95 dark:bg-opacity-95 shadow-sm transition-all duration-300">
       <div className="container mx-auto px-4 py-3 flex justify-between items-center">
-        <h1 className="text-2xl font-bold">Felipe Dos Santos</h1>
+        <h1 className="text-2xl font-bold text-gray-900 dark:text-white transition-colors duration-300">
+          Felipe Dos Santos
+        </h1>
         <div className="hidden md:flex items-center space-x-6">
           <nav className="flex space-x-6">
             {navLinks.map((link) => (
@@ -35,8 +37,8 @@ const Header = ({ theme, toggleTheme }) => {
                 spy
                 smooth
                 duration={500}
-                className="cursor-pointer"
-                activeClass="text-blue-500"
+                className="cursor-pointer text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-200"
+                activeClass="text-blue-600 dark:text-blue-400 font-semibold"
               >
                 {link.label}
               </Link>
@@ -48,13 +50,16 @@ const Header = ({ theme, toggleTheme }) => {
           </div>
         </div>
         <div className="md:hidden">
-          <button onClick={() => setIsOpen(!isOpen)}>
+          <button
+            onClick={() => setIsOpen(!isOpen)}
+            className="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-200"
+          >
             {isOpen ? <FiX size={24} /> : <FiMenu size={24} />}
           </button>
         </div>
       </div>
       {isOpen && (
-        <div className="md:hidden px-4 pt-2 pb-4 space-y-2">
+        <div className="md:hidden px-4 pt-2 pb-4 space-y-2 bg-gray-50 dark:bg-gray-900 border-t border-gray-200 dark:border-gray-700">
           {navLinks.map((link) => (
             <Link
               key={link.to}
@@ -62,14 +67,14 @@ const Header = ({ theme, toggleTheme }) => {
               spy
               smooth
               duration={500}
-              className="block cursor-pointer"
-              activeClass="text-blue-500"
+              className="block cursor-pointer py-2 text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-200"
+              activeClass="text-blue-600 dark:text-blue-400 font-semibold"
               onClick={closeMobileMenu}
             >
               {link.label}
             </Link>
           ))}
-          <div className="flex items-center space-x-4">
+          <div className="flex items-center space-x-4 pt-2 border-t border-gray-200 dark:border-gray-700">
             <LanguageSwitcher />
             <ThemeSwitcher theme={theme} toggleTheme={toggleTheme} />
           </div>

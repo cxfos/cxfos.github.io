@@ -138,26 +138,45 @@ const Experience = () => {
   const { t } = useTranslation();
 
   return (
-    <section id="experience">
-      <h2>{t('experience')}</h2>
-      <div>
-        {experiencesData.map((exp, index) => (
-          <div key={`exp-${index}`}>
-            <h3>{exp.company}</h3>
-            {exp.duration && <p>{t(exp.duration)}</p>}
-            {exp.roles.map((role, roleIndex) => (
-              <div key={`role-${roleIndex}`}>
-                <h4>{role.title}</h4>
-                <p>{t(role.period)} | {t(role.location)}</p>
-                <ul>
-                  {role.description.map((item, itemIndex) => (
-                    <li key={`item-${itemIndex}`}>{t(item)}</li>
-                  ))}
-                </ul>
-              </div>
-            ))}
-          </div>
-        ))}
+    <section id="experience" className="py-20 bg-white dark:bg-gray-900 transition-colors duration-300">
+      <div className="container mx-auto px-4">
+        <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-gray-900 dark:text-white">
+          {t('experience')}
+        </h2>
+        <div className="max-w-4xl mx-auto space-y-8">
+          {experiencesData.map((exp, index) => (
+            <div key={`exp-${index}`} className="bg-gray-50 dark:bg-gray-800 rounded-lg p-6 shadow-md hover:shadow-lg transition-shadow duration-300 border border-gray-200 dark:border-gray-700">
+              <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">
+                {exp.company}
+              </h3>
+              {exp.duration && (
+                <p className="text-sm text-gray-600 dark:text-gray-400 mb-4">
+                  {t(exp.duration)}
+                </p>
+              )}
+              {exp.roles.map((role, roleIndex) => (
+                <div key={`role-${roleIndex}`} className="mb-6 last:mb-0">
+                  <h4 className="text-lg font-semibold text-gray-900 dark:text-white mb-1">
+                    {role.title}
+                  </h4>
+                  <p className="text-sm text-gray-600 dark:text-gray-400 mb-3">
+                    {t(role.period)} | {t(role.location)}
+                  </p>
+                  {role.description.length > 0 && (
+                    <ul className="space-y-2">
+                      {role.description.map((item, itemIndex) => (
+                        <li key={`item-${itemIndex}`} className="flex items-start text-gray-700 dark:text-gray-300">
+                          <span className="text-blue-600 dark:text-blue-400 mr-2">•</span>
+                          <span>{t(item)}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  )}
+                </div>
+              ))}
+            </div>
+          ))}
+        </div>
       </div>
     </section>
   );

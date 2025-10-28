@@ -1,30 +1,43 @@
-/* src/styles/dark-theme.css */
+/* Dark theme styles - serves as fallback for non-Tailwind elements */
 
 body.dark {
-  background-color: #121212;
-  color: #e0e0e0;
+  background-color: #111827; /* gray-900 */
+  color: #f3f4f6; /* gray-100 */
 }
 
-body.dark header,
-body.dark section,
+/* Ensure header has proper background if Tailwind fails */
+body.dark header {
+  background-color: #111827; /* gray-900 */
+  border-bottom-color: #374151; /* gray-700 */
+}
+
+body.dark section {
+  background-color: #1f2937; /* gray-800 */
+  color: #f3f4f6;
+  border-color: #374151; /* gray-700 */
+}
+
 body.dark footer {
-  border-color: #333;
+  background-color: #111827; /* gray-900 */
+  border-top-color: #374151; /* gray-700 */
 }
 
+/* Button fallbacks for non-Tailwind buttons */
 body.dark button {
-  background-color: #1e1e1e;
-  color: #e0e0e0;
-  border-color: #444;
+  background-color: #1f2937; /* gray-800 */
+  color: #f3f4f6; /* gray-100 */
+  border-color: #374151; /* gray-700 */
 }
 
 body.dark button:hover {
-  background-color: #282828;
+  background-color: #374151; /* gray-700 */
 }
 
+/* Link colors */
 body.dark a {
-  color: #bb86fc;
+  color: #60a5fa; /* blue-400 */
 }
 
 body.dark a:hover {
-  color: #9f63f2;
+  color: #93bbfc; /* blue-400 lighter */
 }
