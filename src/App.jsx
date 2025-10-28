@@ -36,7 +36,6 @@ function App() {
   useEffect(() => {
     const root = document.documentElement;
     root.classList.toggle('dark', theme === 'dark');
-    root.classList.toggle('light', theme === 'light');
   }, [theme]);
 
   const handleLanguageChange = (lang) => {
@@ -51,19 +50,15 @@ function App() {
     setTheme(newTheme);
   };
 
-  return (
-    <div className="min-h-screen bg-slate-50 text-slate-900 transition-colors duration-300 dark:bg-slate-950 dark:text-slate-100">
-      {language ? (
-        <Portfolio
-          theme={theme}
-          toggleTheme={toggleTheme}
-          language={language}
-          changeLanguage={handleLanguageChange}
-        />
-      ) : (
-        <LanguageSelection onLanguageSelect={handleLanguageChange} />
-      )}
-    </div>
+  return language ? (
+    <Portfolio
+      theme={theme}
+      toggleTheme={toggleTheme}
+      language={language}
+      changeLanguage={handleLanguageChange}
+    />
+  ) : (
+    <LanguageSelection onLanguageSelect={handleLanguageChange} />
   );
 }
 

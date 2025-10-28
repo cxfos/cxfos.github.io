@@ -23,7 +23,7 @@ const Header = ({ theme, toggleTheme }) => {
   };
 
   return (
-    <header className="sticky top-0 z-50 border-b border-slate-200 bg-slate-50/95 backdrop-blur transition-colors duration-300 dark:border-slate-700 dark:bg-slate-950/90">
+    <header className="sticky top-0 z-50 w-full border-b border-slate-200 bg-slate-50/95 backdrop-blur transition-colors duration-300 dark:border-slate-700 dark:bg-slate-950/90">
       <div className="mx-auto flex max-w-5xl items-center justify-between px-4 py-4 sm:px-6">
         <h1 className="text-lg font-semibold tracking-tight text-slate-900 dark:text-slate-100 sm:text-xl">Felipe Dos Santos</h1>
         <div className="hidden items-center space-x-6 md:flex">
