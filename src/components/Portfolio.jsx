@@ -7,6 +7,7 @@ import Skills from './Skills';
 import Experience from './Experience';
 import Projects from './Projects';
 import Contact from './Contact';
+import ScrollToTop from './ScrollToTop';
 
 const Portfolio = ({ theme, toggleTheme, language, changeLanguage }) => {
   return (
@@ -26,6 +27,7 @@ const Portfolio = ({ theme, toggleTheme, language, changeLanguage }) => {
         <Contact />
       </main>
       <Footer />
+      <ScrollToTop />
     </div>
   );
 };

@@ -33,11 +33,33 @@ body.light button:hover {
   background-color: #e5e7eb; /* gray-200 */
 }
 
-/* Link colors */
+/* Link colors - updated to green accent */
 body.light a {
-  color: #2563eb; /* blue-600 */
+  color: #059669; /* green-600 */
 }
 
 body.light a:hover {
-  color: #1d4ed8; /* blue-700 */
+  color: #047857; /* green-700 */
+}
+
+/* Green accent utilities */
+body.light .accent-green {
+  color: #059669; /* green-600 */
+}
+
+body.light .bg-accent-green {
+  background-color: #059669; /* green-600 */
+}
+
+body.light .border-accent-green {
+  border-color: #059669; /* green-600 */
+}
+
+/* Green glow/shadow effects */
+body.light .glow-green {
+  box-shadow: 0 0 20px rgba(5, 150, 105, 0.3);
+}
+
+body.light .shadow-green {
+  box-shadow: 0 10px 40px rgba(5, 150, 105, 0.15);
 }

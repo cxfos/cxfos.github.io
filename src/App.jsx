@@ -21,15 +21,14 @@ function App() {
   // Initialize theme
   useEffect(() => {
     const savedTheme = localStorage.getItem('theme');
-    const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
-    const prefersLight = window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches;
 
     if (savedTheme) {
       setTheme(savedTheme);
-    } else if (prefersDark) {
+    } else {
+      // Default to dark theme when no preference is saved
+      // This matches our dark-themed design aesthetic
       setTheme('dark');
-    } else if (prefersLight) {
-      setTheme('light');
+      localStorage.setItem('theme', 'dark');
     }
   }, []);
 
