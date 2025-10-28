@@ -5,7 +5,7 @@ import { FiMenu, FiX } from 'react-icons/fi';
 import ThemeSwitcher from './ThemeSwitcher';
 import LanguageSwitcher from './LanguageSwitcher';
 
-const Header = ({ theme, toggleTheme }) => {
+const Header = ({ theme, toggleTheme, language, changeLanguage }) => {
   const { t } = useTranslation();
   const [isOpen, setIsOpen] = useState(false);
 
@@ -23,9 +23,9 @@ const Header = ({ theme, toggleTheme }) => {
   };
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-slate-200 bg-slate-50/95 backdrop-blur transition-colors duration-300 dark:border-slate-700 dark:bg-slate-950/90">
-      <div className="mx-auto flex max-w-5xl items-center justify-between px-4 py-4 sm:px-6">
-        <h1 className="text-lg font-semibold tracking-tight text-slate-900 dark:text-slate-100 sm:text-xl">Felipe Dos Santos</h1>
+    <header className="sticky top-0 z-50 w-full border-b border-white/40 bg-white/70 backdrop-blur-xl transition-colors duration-500 dark:border-white/10 dark:bg-slate-900/60">
+      <div className="mx-auto flex w-full max-w-6xl items-center justify-between px-4 py-4 sm:px-6 lg:px-10">
+        <h1 className="text-lg font-semibold tracking-tight text-slate-900 drop-shadow-sm dark:text-slate-100 sm:text-xl">Felipe Dos Santos</h1>
         <div className="hidden items-center space-x-6 md:flex">
           <nav className="flex items-center space-x-6">
             {navLinks.map((link) => (
@@ -43,7 +43,7 @@ const Header = ({ theme, toggleTheme }) => {
             ))}
           </nav>
           <div className="flex items-center space-x-3">
-            <LanguageSwitcher />
+            <LanguageSwitcher language={language} onChangeLanguage={changeLanguage} />
             <ThemeSwitcher theme={theme} toggleTheme={toggleTheme} />
           </div>
         </div>
@@ -57,7 +57,7 @@ const Header = ({ theme, toggleTheme }) => {
         </div>
       </div>
       {isOpen && (
-        <div className="space-y-3 border-t border-slate-200 bg-slate-50 px-4 py-4 text-sm transition-colors duration-300 dark:border-slate-700 dark:bg-slate-950 md:hidden">
+        <div className="space-y-3 border-t border-white/40 bg-white/70 px-4 py-4 text-sm transition-colors duration-500 dark:border-white/10 dark:bg-slate-900/60 md:hidden">
           {navLinks.map((link) => (
             <Link
               key={link.to}
@@ -73,7 +73,7 @@ const Header = ({ theme, toggleTheme }) => {
             </Link>
           ))}
           <div className="flex items-center space-x-3">
-            <LanguageSwitcher />
+            <LanguageSwitcher language={language} onChangeLanguage={changeLanguage} />
             <ThemeSwitcher theme={theme} toggleTheme={toggleTheme} />
           </div>
         </div>
