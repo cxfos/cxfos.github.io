@@ -68,7 +68,7 @@ const Projects = () => {
         {projectsData.map((project) => (
           <article
             key={project.name}
-            className="group relative flex h-full flex-col overflow-hidden rounded-3xl border border-white/60 bg-white/80 shadow-lg shadow-slate-900/10 transition-all duration-500 hover:-translate-y-1 hover:shadow-2xl hover:shadow-slate-900/20 dark:border-white/10 dark:bg-slate-900/60"
+            className="group relative flex h-full flex-col overflow-hidden rounded-3xl border border-white/60 bg-gradient-to-br from-white/85 via-white/70 to-white/60 shadow-lg shadow-slate-900/10 transition-all duration-500 hover:-translate-y-1 hover:shadow-2xl hover:shadow-slate-900/20 dark:border-white/10 dark:from-slate-900/70 dark:via-slate-900/60 dark:to-slate-900/70"
           >
             <div className="relative overflow-hidden">
               <img
@@ -96,6 +96,7 @@ const Projects = () => {
               )}
             </div>
             <div className="pointer-events-none absolute inset-0 rounded-3xl border border-transparent transition duration-500 group-hover:border-white/60 dark:group-hover:border-white/10" />
+            <div className="pointer-events-none absolute -right-16 -top-16 h-32 w-32 rounded-full bg-sky-200/40 blur-3xl opacity-0 transition-opacity duration-500 group-hover:opacity-100 dark:bg-indigo-500/20" aria-hidden="true" />
           </article>
         ))}
       </div>
