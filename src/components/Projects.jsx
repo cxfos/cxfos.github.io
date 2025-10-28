@@ -1,5 +1,11 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
+import {
+  sectionBaseClasses,
+  sectionBodyTextClass,
+  sectionHeadingClass,
+  sectionSubheadingClass,
+} from './sectionStyles';
 
 const projectsData = [
   {
@@ -36,15 +42,31 @@ const Projects = () => {
   const { t } = useTranslation();
 
   return (
-    <section id="projects">
-      <h2>{t('projects')}</h2>
-      {projectsData.map((project, index) => (
-        <div key={index}>
-          <h3>{project.name}</h3>
-          <p>{t(project.description)}</p>
-          {project.link && <a href={project.link} target="_blank" rel="noopener noreferrer">{t('learn_more')}</a>}
-        </div>
-      ))}
+    <section id="projects" className={`${sectionBaseClasses} space-y-8 text-left`}>
+      <h2 className={sectionHeadingClass}>{t('projects')}</h2>
+      <div className="grid gap-6 lg:grid-cols-2">
+        {projectsData.map((project, index) => (
+          <div
+            key={index}
+            className="flex h-full flex-col justify-between rounded-xl border border-slate-200 bg-white p-6 shadow-sm transition-colors duration-300 dark:border-slate-700 dark:bg-slate-900"
+          >
+            <div className="space-y-3">
+              <h3 className={sectionSubheadingClass}>{project.name}</h3>
+              <p className={sectionBodyTextClass}>{t(project.description)}</p>
+            </div>
+            {project.link && (
+              <a
+                href={project.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-4 inline-flex items-center text-sm font-semibold text-blue-600 transition-colors duration-200 hover:text-blue-500 dark:text-blue-400 dark:hover:text-blue-300"
+              >
+                {t('learn_more')}
+              </a>
+            )}
+          </div>
+        ))}
+      </div>
     </section>
   );
 };

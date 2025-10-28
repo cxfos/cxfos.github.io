@@ -10,14 +10,14 @@ import Contact from './Contact';
 
 const Portfolio = ({ theme, toggleTheme, language, changeLanguage }) => {
   return (
-    <div>
+    <div className="flex min-h-screen flex-col">
       <Header
         theme={theme}
         toggleTheme={toggleTheme}
         language={language}
         changeLanguage={changeLanguage}
       />
-      <main>
+      <main className="flex-1 bg-slate-50 dark:bg-slate-950">
         <Home />
         <About />
         <Skills />
